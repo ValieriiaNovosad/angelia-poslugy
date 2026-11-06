@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0052A4" />
+  <meta name="description" content="Медичний центр «Ангелія» у Києві — основні напрямки: психіатрія, стоматологія, сімейна медицина, стаціонар, діагностика." />
+  <title>Ангелія — напрямки клініки</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <style>
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CG-600.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CG-700.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Cormorant Garamond'; src: url('fonts/CG-600i.ttf') format('truetype'); font-weight: 600; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Manrope'; src: url('fonts/MN-400.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Manrope'; src: url('fonts/MN-500.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Manrope'; src: url('fonts/MN-600.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Manrope'; src: url('fonts/MN-700.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Manrope'; src: url('fonts/MN-800.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+
+    :root {
+      --brand: #0052A4;
+      --brand-deep: #003d7a;
+      --brand-soft: #e8f1fb;
+      --ink: #0f1c2e;
+      --muted: #5a6b7d;
+      --paper: #eef2f7;
+      --white: #ffffff;
+      --line: rgba(0, 82, 164, 0.14);
+      --gold: #c4a574;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Manrope, system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .top {
+      position: sticky; top: 0; z-index: 50;
+      background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+      color: #fff;
+      padding: 12px 16px;
+      padding-top: calc(12px + env(safe-area-inset-top, 0px));
+      box-shadow: 0 8px 24px rgba(0,61,122,.22);
+    }
+    .top-inner {
+      max-width: 880px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .top .logo { height: 28px; width: auto; }
+    .top .tag {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; opacity: .88; text-align: right;
+    }
+
+    .chips {
+      position: sticky; top: 52px; z-index: 45;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .chips::-webkit-scrollbar { display: none; }
+    .chips-inner {
+      max-width: 880px; margin: 0 auto;
+      display: flex; gap: 6px; padding: 10px 12px;
+      width: max-content; min-width: 100%;
+    }
+    .chips a {
+      flex: 0 0 auto; text-decoration: none;
+      font-size: 12px; font-weight: 800; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--brand);
+      background: var(--brand-soft); padding: 8px 12px;
+      border-radius: 999px; white-space: nowrap;
+    }
+
+    main {
+      max-width: 720px; margin: 0 auto;
+      padding: 16px 14px calc(110px + var(--safe-bottom));
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .hero {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 18px; padding: 22px 18px;
+      box-shadow: 0 10px 28px rgba(15,28,46,.06);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 7vw, 40px); font-weight: 700;
+      line-height: 1.1; color: var(--brand); margin-bottom: 8px;
+    }
+    .hero p { color: var(--muted); font-size: 15px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      text-decoration: none; border-radius: 999px;
+      font: 800 12px/1 Manrope, sans-serif;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 12px 16px;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-ghost {
+      background: var(--brand-soft); color: var(--brand);
+      border: 1px solid rgba(0,82,164,.12);
+    }
+
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    @media (max-width: 420px) { .stats { grid-template-columns: 1fr; } }
+    .stats .cell {
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 12px; padding: 14px 10px; text-align: center;
+    }
+    .stats .num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: var(--brand);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .stats .lbl {
+      font-size: 11px; font-weight: 700; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--muted); line-height: 1.25;
+    }
+
+    .block {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 18px; padding: 20px 16px 18px;
+      box-shadow: 0 10px 28px rgba(15,28,46,.05);
+      scroll-margin-top: 112px;
+    }
+    .colnum {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--brand); margin-bottom: 8px;
+    }
+    .colnum::before { content: ''; width: 18px; height: 3px; background: var(--gold); }
+    .col-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(26px, 6vw, 34px); font-weight: 700;
+      line-height: 1.08; margin-bottom: 12px;
+    }
+    .hook {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px; font-style: italic; line-height: 1.35; color: var(--ink);
+      background: linear-gradient(135deg, #fff, var(--brand-soft));
+      border: 1px solid var(--line); border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0; padding: 12px 14px; margin-bottom: 12px;
+    }
+    .body { font-size: 15px; color: var(--muted); margin-bottom: 12px; }
+    .body strong { color: var(--ink); }
+    .sect {
+      font-size: 12px; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--brand); margin: 14px 0 8px;
+    }
+    .need-list {
+      list-style: none; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+    }
+    @media (max-width: 480px) { .need-list { grid-template-columns: 1fr; } }
+    .need-list li {
+      font-size: 14px; font-weight: 600;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .need-list li::before {
+      content: ''; width: 6px; height: 6px; margin-top: 7px;
+      border-radius: 50%; background: var(--gold); flex-shrink: 0;
+    }
+
+    .why {
+      display: grid; gap: 8px;
+    }
+    .why article {
+      background: linear-gradient(135deg, rgba(232,241,251,.85), #fff);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .why h3 {
+      font-size: 14px; font-weight: 800; color: var(--brand); margin-bottom: 4px;
+    }
+    .why p { font-size: 14px; color: var(--muted); }
+
+    .cta-card {
+      background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+      color: #fff; border-radius: 18px; padding: 20px 16px;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::after {
+      content: ''; position: absolute; right: -10%; top: -60%;
+      width: 40%; height: 220%; background: rgba(255,255,255,.08);
+      transform: rotate(18deg);
+    }
+    .cta-card h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px; font-weight: 700; position: relative; z-index: 1;
+      margin-bottom: 8px;
+    }
+    .cta-card p, .cta-card address {
+      font-size: 14px; font-style: normal; opacity: .92;
+      position: relative; z-index: 1; margin-bottom: 6px;
+    }
+    .cta-card .btn-primary {
+      background: #fff; color: var(--brand); margin-top: 12px;
+      position: relative; z-index: 1;
+    }
+    .cta-card .phone {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px; font-weight: 700; display: block;
+      margin: 8px 0 4px; text-decoration: none;
+      position: relative; z-index: 1;
+    }
+
+    .fab {
+      position: fixed;
+      right: 14px;
+      bottom: calc(14px + var(--safe-bottom));
+      z-index: 70;
+      background: var(--brand); color: #fff; border: none;
+      border-radius: 999px; padding: 14px 18px;
+      font: 800 12px/1 Manrope, sans-serif; letter-spacing: .06em;
+      text-transform: uppercase; box-shadow: 0 10px 24px rgba(0,61,122,.28);
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center; color: var(--muted); font-size: 13px;
+      padding: 4px 8px 8px;
+    }
+
+    @media (min-width: 900px) {
+      .chips { top: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <img class="logo" src="assets/logo.png" alt="Ангелія" />
+      <div class="tag">Напрямки клініки</div>
+    </div>
+  </header>
+
+  <nav class="chips" aria-label="Напрямки">
+    <div class="chips-inner">
+      <a href="#pro-nas">Про нас</a>
+      <a href="#simejna">Сімейна</a>
+      <a href="#psy">Психіатрія</a>
+      <a href="#stacionar">Стаціонар</a>
+      <a href="#narko">Наркологія</a>
+      <a href="#stom">Стоматологія</a>
+      <a href="#gina">Гінекологія</a>
+      <a href="#terapiya">Терапія</a>
+      <a href="#ruh">Реабілітація</a>
+      <a href="#diag">Діагностика</a>
+      <a href="#kontakty">Контакти</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="pro-nas">
+      <h1>Відновлюємо радість здорового життя</h1>
+      <p>Медичний центр «Ангелія» в Києві. Консультація, аналізи, УЗД, лікування і стаціонар — в одному місці. Якщо випадок складний, лікарі різних напрямків складають один план.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.angelia.ua/booking/">Записатися</a>
+        <a class="btn btn-ghost" href="tel:+380800336812">0 800 336 812</a>
+      </div>
+    </section>
+
+    <div class="stats" aria-label="Коротко про клініку">
+      <div class="cell"><div class="num">12+</div><div class="lbl">років роботи</div></div>
+      <div class="cell"><div class="num">32</div><div class="lbl">лікаря</div></div>
+      <div class="cell"><div class="num">15+</div><div class="lbl">напрямків</div></div>
+    </div>
+
+    <section class="block">
+      <div class="colnum">01 · Хто ми</div>
+      <h2 class="col-title">Комплексна допомога з повагою до людини</h2>
+      <p class="hook">Для нас важлива не лише медицина, а й ставлення: повага, підтримка і увага до кожного пацієнта.</p>
+      <div class="why">
+        <article>
+          <h3>Усе в одному місці</h3>
+          <p>Не треба шукати різних лікарів по місту і пересилати результати між клініками.</p>
+        </article>
+        <article>
+          <h3>Християнські цінності</h3>
+          <p>Працюємо з людиною цілісно: тіло, душа і дух. Повага до гідності пацієнта — основа роботи команди.</p>
+        </article>
+        <article>
+          <h3>Стаціонар поруч</h3>
+          <p>Якщо потрібен постійний нагляд, інфузійна терапія чи відновлення — є стаціонар у самій клініці.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="simejna">
+      <div class="colnum">02 · Перший контакт</div>
+      <h2 class="col-title">Сімейна медицина</h2>
+      <p class="hook">Коли не знаєте, до якого лікаря звернутися — почніть із сімейного.</p>
+      <p class="body">Сімейний лікар допомагає розібратися в симптомах, провести первинну діагностику і за потреби скерувати до вузького спеціаліста. Супроводжує від профілактики до лікування хронічних станів.</p>
+      <p class="sect">Звертайтеся, якщо</p>
+      <ul class="need-list">
+        <li>температура, кашель, застуда</li>
+        <li>слабкість і постійна втома</li>
+        <li>біль у животі, травлення</li>
+        <li>нестабільний тиск</li>
+        <li>профілактичний огляд</li>
+        <li>довідки та направлення</li>
+      </ul>
+    </section>
+
+    <section class="block" id="psy">
+      <div class="colnum">03 · Душевне здоров’я</div>
+      <h2 class="col-title">Психіатрія і психологія</h2>
+      <p class="hook">Коли емоційний стан починає впливати на повсякденне життя — не варто залишатися з цим наодинці.</p>
+      <p class="body">Психіатр оцінює стан, за потреби встановлює діагноз і підбирає лікування за принципами доказової медицини. Психолог допомагає розібратися в переживаннях, стресі, стосунках і кризах. Є спеціалісти, які працюють із дітьми та підлітками.</p>
+      <p class="sect">Звертайтеся з</p>
+      <ul class="need-list">
+        <li>тривогою і панічними атаками</li>
+        <li>депресивними проявами</li>
+        <li>порушеннями сну</li>
+        <li>змінами настрою</li>
+        <li>емоційним виснаженням</li>
+        <li>переживанням втрати</li>
+      </ul>
+    </section>
+
+    <section class="block" id="stacionar">
+      <div class="colnum">04 · Нагляд</div>
+      <h2 class="col-title">Стаціонар</h2>
+      <p class="hook">Медична допомога під постійним наглядом лікарів — коли амбулаторно вже недостатньо.</p>
+      <p class="body">Стаціонар потрібен, коли необхідне цілодобове спостереження, інфузійна терапія або комплексне відновлення. Формат і тривалість визначає лікар. Палати «Комфорт» і «Стандарт», триразове харчування.</p>
+      <p class="sect">У стаціонарі</p>
+      <ul class="need-list">
+        <li>цілодобовий медичний нагляд</li>
+        <li>консультації психіатра і психолога</li>
+        <li>інфузійна терапія</li>
+        <li>програми на 1, 10 і 21 день</li>
+      </ul>
+    </section>
+
+    <section class="block" id="narko">
+      <div class="colnum">05 · Залежності</div>
+      <h2 class="col-title">Наркологія</h2>
+      <p class="hook">Допомога, коли самостійно впоратися вже складно — і для людини, і для родини.</p>
+      <p class="body">Консультація спеціаліста, медична допомога при гострих станах, детоксикація і подальший супровід. Працюємо анонімно, з повагою і без засудження.</p>
+      <p class="sect">Допомагаємо при</p>
+      <ul class="need-list">
+        <li>алкогольній залежності</li>
+        <li>наркотичній залежності</li>
+        <li>запоях і синдромі відміни</li>
+        <li>необхідності детоксикації</li>
+      </ul>
+    </section>
+
+    <section class="block" id="stom">
+      <div class="colnum">06 · Посмішка</div>
+      <h2 class="col-title">Стоматологія</h2>
+      <p class="hook">Від профілактичної чистки до імплантації — в одній клініці, з лікарями різних спеціалізацій.</p>
+      <p class="body">Терапія, хірургія та імплантація, ортопедія, ортодонтія і дитяча стоматологія. Лікування кореневих каналів з мікроскопом, професійна гігієна, Air Flow.</p>
+      <p class="sect">Спектр послуг</p>
+      <ul class="need-list">
+        <li>лікування карієсу і каналів</li>
+        <li>імплантація та хірургія</li>
+        <li>протезування і вініри</li>
+        <li>брекети та елайнери</li>
+        <li>дитячий прийом</li>
+        <li>гігієна і відбілювання</li>
+      </ul>
+    </section>
+
+    <section class="block" id="gina">
+      <div class="colnum">07 · Жіноче здоров’я</div>
+      <h2 class="col-title">Гінекологія</h2>
+      <p class="hook">Турбота про жіноче здоров’я — це не лише лікування, коли вже болить.</p>
+      <p class="body">Консультація, огляд, кольпоскопія, УЗД органів малого таза. Допомога з циклом, плануванням вагітності, менопаузою і питаннями тазового дна.</p>
+    </section>
+
+    <section class="block" id="terapiya">
+      <div class="colnum">08 · Внутрішні органи</div>
+      <h2 class="col-title">Неврологія, кардіологія, ендокринологія</h2>
+      <p class="hook">Головний біль, серце і гормони впливають на самопочуття більше, ніж здається.</p>
+      <p class="body"><strong>Невролог</strong> — мігрень, запаморочення, біль у шиї та спині, порушення сну, оніміння кінцівок.</p>
+      <p class="body"><strong>Кардіолог</strong> — тиск, серцебиття, біль у грудях, задишка, профілактика здоров’я серця.</p>
+      <p class="body"><strong>Ендокринолог</strong> — щитоподібна залоза, діабет, зміни ваги, гормональний дисбаланс. Є онлайн-прийом.</p>
+    </section>
+
+    <section class="block" id="ruh">
+      <div class="colnum">09 · Рух</div>
+      <h2 class="col-title">Ортопедія, реабілітація, масаж</h2>
+      <p class="hook">Біль у суглобах або наслідки травми не повинні ставати нормою.</p>
+      <p class="body">Ортопед-травматолог допомагає з болем у суглобах і спині, наслідками травм і обмеженням рухливості. Реабілітація повертає силу і повсякденні навички після травми, операції чи хвороби. Масаж — лікувальний і відновлювальний, за показаннями.</p>
+    </section>
+
+    <section class="block" id="diag">
+      <div class="colnum">10 · Діагностика</div>
+      <h2 class="col-title">Аналізи та УЗД</h2>
+      <p class="hook">Щоб лікувати причину, спочатку потрібно її знайти — і здати все можна тут же.</p>
+      <p class="body">Лабораторія виконує широкий спектр аналізів. УЗД органів черевної порожнини, нирок, щитоподібної залози, малого таза і судин — швидко, безболісно, результат одразу. Також ЕКГ та інші дослідження за показаннями.</p>
+    </section>
+
+    <section class="cta-card" id="kontakty">
+      <h2>Завітайте або запишіться</h2>
+      <a class="phone" href="tel:+380800336812">0 800 336 812</a>
+      <address>м. Київ, вул. Руденко Лариси, 3</address>
+      <p>Пн–Чт: 9:00–20:00 · Пт: 9:00–16:00 · Сб–Нд: вихідний</p>
+      <a class="btn btn-primary" href="https://www.angelia.ua/booking/">Онлайн-запис</a>
+      <a class="btn btn-primary" href="https://www.angelia.ua/" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45);margin-left:8px;">Повний сайт</a>
+    </section>
+
+    <p class="footer">Медичний центр «Ангелія» · ознайомча сторінка напрямків</p>
+  </main>
+
+  <a class="fab" href="https://www.angelia.ua/booking/">Записатися</a>
+</body>
+</html>
